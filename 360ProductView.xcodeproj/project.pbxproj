@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					B064ACF81F46E8E0008A8C6F = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4XE2P8XZF9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -262,9 +263,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4XE2P8XZF9;
 				INFOPLIST_FILE = 360ProductView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "aatish.-60ProductView";
+				PRODUCT_BUNDLE_IDENTIFIER = aatish.360ProductView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -275,9 +277,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4XE2P8XZF9;
 				INFOPLIST_FILE = 360ProductView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "aatish.-60ProductView";
+				PRODUCT_BUNDLE_IDENTIFIER = aatish.360ProductView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
