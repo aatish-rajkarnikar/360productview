@@ -11,38 +11,37 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    var startIndex = 2
-    var endIndex = 65
-    var currentIndex = 2{
+    
+    var currentIndex: Int = 0{
         didSet{
-            imageView.image = UIImage(named: "\(currentIndex)")
+            imageView.image = images[currentIndex]
         }
     }
-    var lastPoint = CGPoint.zero
+    var images: [UIImage] = [UIImage]()
+    var lastPoint: CGPoint = CGPoint.zero
+    let sensitivity: CGFloat = 5.0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        for i in 2...65 {
+            images.append(UIImage(named: "\(i)")!)
+        }
+        currentIndex = 0
+    }
 
     @IBAction func gesture(_ sender: UIPanGestureRecognizer) {
-        
+        let currentPoint = sender.location(in: imageView)
         if sender.state == .began{
-            lastPoint = sender.location(in: imageView)
+            lastPoint = currentPoint
         }else if sender.state == .changed {
             let velocity = sender.velocity(in: imageView)
-            if velocity.x > 0 {
-                if (sender.location(in: imageView).x > lastPoint.x + 5){
-                    lastPoint = sender.location(in: imageView)
-                    if currentIndex > startIndex{
-                        currentIndex -= 1
-                    }else{
-                        currentIndex = endIndex
-                    }
-                }
+            if velocity.x > 0 && currentPoint.x > lastPoint.x + sensitivity{
+                currentIndex = currentIndex > 0 ? currentIndex - 1 : images.count - 1
+                lastPoint = currentPoint
             }else{
-                if (sender.location(in: imageView).x < lastPoint.x - 5){
-                    lastPoint = sender.location(in: imageView)
-                    if currentIndex < endIndex{
-                        currentIndex += 1
-                    }else{
-                        currentIndex = startIndex
-                    }
+                if currentPoint.x < lastPoint.x - sensitivity {
+                    currentIndex = currentIndex < images.count - 1 ? currentIndex + 1 : 0
+                    lastPoint = currentPoint
                 }
             }
         }
